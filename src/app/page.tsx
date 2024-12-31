@@ -5,7 +5,7 @@ export default function Home(){
     return (
     <>
         <Nav></Nav>
-        <Search></Search>
+        <Search type={"Community"}></Search>
     </>
     )
 }
