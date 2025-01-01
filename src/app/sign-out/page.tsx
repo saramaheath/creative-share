@@ -4,14 +4,14 @@ import NavDropDown from '@/components/navDropDown';
 import Image from "next/image";
 import Nav from "@/components/nav";
 
-export default function UserProfile(){
+export default function SignOut(){
 
 
     return (
     <>
         <Nav></Nav>
         <h1>
-            user profile
+            sign out
         </h1>
     </>
     );
