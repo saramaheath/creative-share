@@ -11,9 +11,9 @@ export default function NavDropDown(props: {isOpen : boolean}){
     return (
     <div className="max-width-sm cursor-pointer flex justify-end">
         {props.isOpen && (
-            <ul className="absolute z-50 border-solid border-2 border-white-500 rounded-md bg-orange-950 w-[200px]">
+            <ul className="absolute z-50 rounded-md background-pdark w-[200px]">
                 {labels.map((label, index)=>
-                    <li key={index} className="px-4 py-2 bg-orange-950 hover:bg-orange-900 rounded-md"><Link href={links[index]}>{label}</Link></li>
+                    <li key={index} className="px-4 py-2 background-pdark rounded-md nav-link"><Link href={links[index]}>{label}</Link></li>
                 )}
                 
             </ul>

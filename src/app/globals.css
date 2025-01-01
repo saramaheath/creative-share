@@ -3,23 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #eceeff;
+  --background: #3c4574;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #071a43;
+    --foreground: #eceeff;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 600;
 }
 
 .nav-img {
   height: 100%;
+}
+
+.border-pwhite {
+  color: #eceeff
+}
+
+.background-pdark {
+  background-color: #071a43;
+}
+
+.background-pmd {
+  background-color: #3c4574;
+}
+
+.dark-shadow {
+  --tw-shadow-color: #071a43;
+}
+
+.section-pwhite, .nav-link:hover {
+  background: var(--foreground);
+  color: black;
 }
