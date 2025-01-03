@@ -29,6 +29,10 @@ body {
   color: #eceeff
 }
 
+.border-pdark {
+  border-color: #071a43;
+}
+
 .background-pdark {
   background-color: #071a43;
 }
