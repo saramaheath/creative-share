@@ -8,7 +8,7 @@ import AboutMe from "./aboutMe";
 export default function TabsSection(props: {userName: string}){
 const [activeTab, setActiveTab] = useState('Projects');
 const tabs = ['Projects', 'Posts', 'About Me'];
-const activeStyles = "p-2 mx-2 mt-2 mb-0 cursor-pointer border-x-2 border-t-2 rounded-t-md border-pdark";
+const activeStyles = "p-2 mx-4 mt-4 mb-0 cursor-pointer border-x-2 border-t-2 rounded-t-md border-pdark";
 const inactiveStyles = activeStyles.replace('border-t-2', 'border-y-2');
 
 function tabSwitch(evt:any){

@@ -6,7 +6,7 @@ export default function Posts(){
     const posts = ['Post', 'Post', 'Post', 'Post'];
 
     return (
-        <div className="p-2 mx-2 flex flex-col section-pwhite border-x-2 border-b-2 rounded-b-md border-pdark">
+        <div className="p-2 mx-4 mb-4 flex flex-col section-pwhite border-x-2 border-b-2 rounded-b-md border-pdark">
             <div className="grid grid-rows-4 m-8">
                 {posts.map((post, index) =>
                     <div key={index}>{post}</div>
