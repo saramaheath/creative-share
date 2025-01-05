@@ -5,7 +5,7 @@ export default function ProfPic(props: {userName: string}){
     return (
         <div className="p-2 flex flex-col section-pwhite rounded-md w-1/4 mr-0 ml-8 my-8 shadow-lg shadow-black">
             <div className="p-2 flex flex-row">
-                <img src="/person_placeholder.png" alt="profile-pic" className="p-2 size-24 rounded-md"></img>
+                <img src="/person_placeholder.png" alt="profile-pic" className="p-2 size-36 rounded-md"></img>
                 <div className="p-2">
                     <h2>{props.userName}</h2>
                     <p>Current Medium: Mosaic</p>

@@ -5,9 +5,11 @@ import Image from "next/image";
 
 export default function Projects(){
     const [projectView, setProjectView] = useState('multi');
+    const [currProjImg, setCurrProjImg] = useState('');
     const projects = ['/dragonmosaic.jpg', '/sample_proj_img.jpg', '/mushroom_rainbow.jpg', '/magic_cat.JPG', '/lemongrab_clay.JPG', '/pig_hat_man.jpg', '/paint_wb.JPG', '/ink_cat.jpg'];
 
     function displayProject(evt:any){
+        setCurrProjImg(evt.target.src);
         setProjectView('single');
     }
 
@@ -25,9 +27,9 @@ export default function Projects(){
             </div>
             )}
             {projectView === 'single' && (
-                <div className="flex flex-row">
-                    <div onClick={displayAllProjects} className="p-2 border-2 rounded-md border-pdark cursor-pointer">Back to Projects</div>
-                    <Project></Project>
+                <div className="flex flex-col">
+                    <div onClick={displayAllProjects} className="p-2 m-4 border-2 rounded-md border-pdark cursor-pointer w-1/4">Back to Projects</div>
+                    <Project projImg={currProjImg}></Project>
                 </div>
                 )}
         </div>
