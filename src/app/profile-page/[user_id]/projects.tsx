@@ -28,7 +28,7 @@ export default function Projects(){
             )}
             {projectView === 'single' && (
                 <div className="flex flex-col">
-                    <div onClick={displayAllProjects} className="p-2 m-4 border-2 rounded-md border-pdark cursor-pointer w-1/4">Back to Projects</div>
+                    <div onClick={displayAllProjects} className="p-2 m-4 border-2 rounded-md border-pdark cursor-pointer text-center w-1/4"> Back to Projects</div>
                     <Project projImg={currProjImg}></Project>
                 </div>
                 )}
