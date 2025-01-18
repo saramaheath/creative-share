@@ -7,8 +7,8 @@ export default function Comments(){
 
     return (
         <div className="py-2 mx-4 mb-2">
-            <div className="p-2 border-x-2 border-t-2 rounded-t-md border-pdark">Comments</div>
-            <div className="p-2 flex flex-col section-pwhite border-x-2 border-y-2 rounded-b-md border-pdark">
+            <div className="p-2 border-x border-t rounded-t-md border-pdark">Comments</div>
+            <div className="p-2 flex flex-col section-pwhite border-x border-y rounded-b-md border-pdark">
             <div className="grid grid-rows-4 m-8">
                 {comments.map((comment, index) =>
                     <div key={index}>{comment}</div>

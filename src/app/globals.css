@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #eceeff;
+  --foreground: white;
   --background: #3c4574;
 }
 
@@ -18,7 +18,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .nav-img {
@@ -30,7 +30,7 @@ body {
 }
 
 .border-pdark {
-  border-color: #071a43;
+  border-color: #9ca3af;
 }
 
 .background-pdark {
@@ -47,5 +47,5 @@ body {
 
 .section-pwhite, .nav-link:hover {
   background: var(--foreground);
-  color: black;
+  color: #9ca3af;
 }
