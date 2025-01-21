@@ -22,14 +22,14 @@ import {
     // using the `Generated` type. This way they are automatically
     // made optional in inserts and updates.
     id: Generated<number>
-  
+    user_name: string
     first_name: string
-    gender: 'man' | 'woman' | 'other'
-  
+    
     // If the column is nullable in the database, make its type nullable.
     // Don't use optional properties. Optionality is always determined
     // automatically by Kysely.
     last_name: string | null
+    gender: 'male' | 'female' | 'non-binary'
   
     // You can specify a different type for each operation (select, insert and
     // update) using the `ColumnType<SelectType, InsertType, UpdateType>`
@@ -37,18 +37,25 @@ import {
     // a `Date`, can optionally be provided as a `string` in inserts and
     // can never be updated:
     created_at: ColumnType<Date, string | undefined, never>
+    email: string
+    password: string
+    profile_img: string
+    city: string
+    state: string
+    country: string
+
   
     // You can specify JSON columns using the `JSONColumnType` wrapper.
     // It is a shorthand for `ColumnType<T, string, string>`, where T
     // is the type of the JSON object/array retrieved from the database,
     // and the insert and update types are always `string` since you're
     // always stringifying insert/update values.
-    metadata: JSONColumnType<{
-      login_at: string
-      ip: string | null
-      agent: string | null
-      plan: 'free' | 'premium'
-    }>
+    // metadata: JSONColumnType<{
+    //   login_at: string
+    //   ip: string | null
+    //   agent: string | null
+    //   plan: 'free' | 'premium'
+    // }>
   }
   
   // You should not use the table schema interfaces directly. Instead, you should
@@ -63,9 +70,10 @@ import {
   
   export interface ProjectTable {
     id: Generated<number>
-    name: string
-    owner_id: number
-    species: 'dog' | 'cat'
+    user_id: number
+    title: string
+    main_img: string
+    medium: string
   }
   
   export type Project = Selectable<ProjectTable>
@@ -74,9 +82,10 @@ import {
 
   export interface PostTable {
     id: Generated<number>
-    name: string
-    owner_id: number
-    species: 'dog' | 'cat'
+    user_id: number
+    title: string
+    text: string
+    type: 'profile' | 'community'
   }
   
   export type Post = Selectable<PostTable>
