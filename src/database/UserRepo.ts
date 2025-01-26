@@ -2,14 +2,14 @@ import { db } from './db'
 import { UserUpdate, User, NewUser } from './types'
 
 export async function findUserById(id: number) {
-  return await db.selectFrom('user')
+  return await db.selectFrom('users')
     .where('id', '=', id)
     .selectAll()
     .executeTakeFirst()
 }
 
 export async function findPeople(criteria: Partial<User>) {
-  let query = db.selectFrom('user')
+  let query = db.selectFrom('users')
 
   if (criteria.id) {
     query = query.where('id', '=', criteria.id) // Kysely is immutable, you must re-assign!
@@ -39,18 +39,18 @@ export async function findPeople(criteria: Partial<User>) {
 }
 
 export async function updateUser(id: number, updateWith: UserUpdate) {
-  await db.updateTable('user').set(updateWith).where('id', '=', id).execute()
+  await db.updateTable('users').set(updateWith).where('id', '=', id).execute()
 }
 
 export async function createUser(user: NewUser) {
-  return await db.insertInto('user')
+  return await db.insertInto('users')
     .values(user)
     .returningAll()
     .executeTakeFirstOrThrow()
 }
 
 export async function deleteUser(id: number) {
-  return await db.deleteFrom('user').where('id', '=', id)
+  return await db.deleteFrom('users').where('id', '=', id)
     .returningAll()
     .executeTakeFirst()
 }
