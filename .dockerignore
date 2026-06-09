@@ -3,6 +3,5 @@ node_modules
 README.md
 .git
 .gitignore
-
 compose.yaml
 docker-compose.yaml
