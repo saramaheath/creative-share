@@ -1,6 +1,6 @@
 export default function Search(props: {type : string}){
 
-    let searchText = `Search ${props.type[0].toUpperCase() + props.type.slice(1)}`;
+    const searchText = `Search ${props.type[0].toUpperCase() + props.type.slice(1)}`;
 
     return (
     <div className="flex items-center justify-center w-full h-96">

@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
 import { useUser } from '@auth0/nextjs-auth0';
 
 export default function ProfPic(props: {userName: string}){
-    const { user, isLoading, error} = useUser();
+    const { user, isLoading } = useUser();
     
     if (isLoading) return <div>Loading...</div>
 

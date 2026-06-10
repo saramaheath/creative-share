@@ -1,7 +1,4 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import Comment from "./comment";
 import CommunityAlert from "./commlunityAlert";
 
 export default function CommunityAlerts(){

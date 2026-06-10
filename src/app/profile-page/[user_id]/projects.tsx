@@ -1,15 +1,14 @@
 "use client";
 import { useState } from "react";
 import Project from "./project";
-import Image from "next/image";
 
 export default function Projects(){
     const [projectView, setProjectView] = useState('multi');
     const [currProjImg, setCurrProjImg] = useState('');
     const projects = ['/dragonmosaic.jpg', '/sample_proj_img.jpg', '/mushroom_rainbow.jpg', '/magic_cat.JPG', '/lemongrab_clay.JPG', '/pig_hat_man.jpg', '/paint_wb.JPG', '/ink_cat.jpg'];
 
-    function displayProject(evt:any){
-        setCurrProjImg(evt.target.src);
+    function displayProject(evt: React.MouseEvent<HTMLImageElement>){
+        setCurrProjImg(evt.currentTarget.src);
         setProjectView('single');
     }
 

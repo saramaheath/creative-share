@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default async function Home(){
     const session = await auth0.getSession();
-    const currUser = await findUserById(1);
+    await findUserById(1);
     
     if (!session) {
         return (

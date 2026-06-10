@@ -1,11 +1,9 @@
-import { FileMigrationProvider, Kysely, Migrator, sql } from "kysely";
-import * as path from "path";
-import { promises as fs } from "fs";
+import { Kysely, sql } from "kysely";
 import { db } from "./db";
 import { createUser } from "./UserRepo";
-import { NewUser } from "./types";
+import { Database, NewUser } from "./types";
 
-async function runUsersTable(db: Kysely<any>): Promise<void> {
+async function runUsersTable(db: Kysely<Database>): Promise<void> {
     await db.schema.createTable('users')
     .addColumn('id', 'serial', (col) => col.primaryKey())
     .addColumn('first_name', 'varchar', (col) => col.notNull())
@@ -24,7 +22,7 @@ async function runUsersTable(db: Kysely<any>): Promise<void> {
     .execute();
 }
 
-async function runProjectsTable(db: Kysely<any>): Promise<void> {
+async function runProjectsTable(db: Kysely<Database>): Promise<void> {
   await db.schema.createTable('projects')
   .addColumn('id', 'serial', (col) => col.primaryKey())
   .addColumn('user_id', 'integer', (col) => col.references('users.id').onDelete('cascade').notNull(),)
@@ -37,7 +35,7 @@ async function runProjectsTable(db: Kysely<any>): Promise<void> {
   .execute();
 }
 
-async function runRelationships(db: Kysely<any>): Promise<void> {
+async function runRelationships(db: Kysely<Database>): Promise<void> {
   await db.schema
     .createIndex('project_user_id_index')
     .on('projects')
@@ -45,59 +43,43 @@ async function runRelationships(db: Kysely<any>): Promise<void> {
     .execute()
 }
 
-export async function dropTable(db: Kysely<any>): Promise<void> {
-  await db.schema.dropTable('user').execute();
+export async function dropTable(db: Kysely<Database>): Promise<void> {
+  await db.schema.dropTable('users').ifExists().execute();
 }
 
-//dropTable(db);
-//runUsersTable(db);
-//runProjectsTable(db);
-//runRelationships(db);
-const saraUser:NewUser = {
-first_name: '',
-last_name: '',
-user_name: '',
-email: '',
-password: '',
-profile_img: '',
-city: '',
-state: '',
-country: '',
-gender: 'non-binary'
-};
+async function seedSampleUser(): Promise<void> {
+  const saraUser: NewUser = {
+    first_name: 'Sara',
+    last_name: 'Heath',
+    user_name: 'sara',
+    email: 'sara@example.com',
+    password: 'changeme',
+    profile_img: '',
+    city: 'Unknown',
+    state: 'Unknown',
+    country: 'Unknown',
+    gender: 'non-binary',
+  };
 
-createUser(saraUser);
-// export async function executeMigration() {
-//   const migrator = new Migrator({
-//     db,
-//     provider: new FileMigrationProvider({
-//       fs,
-//       path,
-//       migrationFolder: path.join(__dirname, "../database"),
-//     }),
-//   });
+  await createUser(saraUser);
+}
 
-//   const { error, results } = await migrator.migrateToLatest();
+export async function runMigrations(): Promise<void> {
+  console.log('Creating users table...');
+  await runUsersTable(db);
 
-//   console.log(results, error, migrator, db);
+  console.log('Creating projects table...');
+  await runProjectsTable(db);
 
-//   results?.forEach((it) => {
-//     if (it.status === "Success") {
-//       console.log(`migration "${it.migrationName}" was executed successfully`);
-//     } else if (it.status === "Error") {
-//       console.error(`failed to execute migration "${it.migrationName}"`);
-//     }
-//   });
+  console.log('Creating project index...');
+  await runRelationships(db);
 
-//   if (error) {
-//     console.error("failed to migrate");
-//     console.error(error);
-//     process.exit(1);
-//   }
+  console.log('Seeding sample user...');
+  await seedSampleUser();
 
-//   await db.destroy();
-// }
+  await db.destroy();
+}
 
-// executeMigration();
+void runMigrations();
 
 

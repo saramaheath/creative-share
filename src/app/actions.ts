@@ -1,5 +1,5 @@
 'use server';
 
-export async function getUser(formData: FormData){
-
+export async function getUser() {
+  return null;
 }
