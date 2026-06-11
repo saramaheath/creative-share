@@ -28,7 +28,7 @@ import {
     // Don't use optional properties. Optionality is always determined
     // automatically by Kysely.
     last_name: string | null
-    gender: 'male' | 'female' | 'non-binary'
+    gender: 'male' | 'female' | 'non-binary' | ''
   
     // You can specify a different type for each operation (select, insert and
     // update) using the `ColumnType<SelectType, InsertType, UpdateType>`
@@ -39,9 +39,9 @@ import {
     email: string
     password: string
     profile_img: string
-    city: string
-    state: string
-    country: string
+    city: string | null
+    state: string | null
+    country: string | null
 
   
     // You can specify JSON columns using the `JSONColumnType` wrapper.

@@ -8,6 +8,13 @@ export async function findUserById(id: number) {
     .executeTakeFirst()
 }
 
+export async function findUserByEmail(email: string) {
+  return await db.selectFrom('users')
+    .where('email', '=', email)
+    .selectAll()
+    .executeTakeFirst()
+}
+
 export async function findPeople(criteria: Partial<User>) {
   let query = db.selectFrom('users')
 

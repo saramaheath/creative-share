@@ -10,8 +10,12 @@ export default function Comment(){
             </div>
            <p className="text-xs font-normal mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
            <div className="flex flex-row justify-between">
-            <div className="m-2 border rounded-md border-pdark cursor-pointer text-center text-xs w-1/4 hover:bg-slate-400 hover:text-white">Reply</div>
-            <div className="m-2 border rounded-md border-pdark cursor-pointer text-center text-xs w-1/4 hover:bg-slate-400 hover:text-white">Delete</div>
+            <div className="m-2 p-2 rounded-sm cursor-pointer text-center text-xs w-1/4 custom-button">
+                <span className="p-2">Reply</span>
+            </div>
+            <div className="m-2 p-2 rounded-sm cursor-pointer text-center text-xs w-1/4 custom-button">
+                <span className="p-2">Delete</span>
+            </div>
            </div>
         </div>
         

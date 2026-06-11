@@ -17,17 +17,17 @@ export default function Projects(){
     }
 
     return (
-        <div className="p-2 mx-4 mb-4 flex flex-col section-pwhite border-x border-b rounded-b-md border-pdark">
+        <div className="p-2 flex flex-col section-pwhite">
             {projectView === 'multi' && (
                 <div className="grid grid-cols-4 gap-4 m-8">
                     {projects.map((img, index) =>
-                        <img key={index} src={img} onClick={displayProject} alt="project-image" className="object-cover size-64 rounded-md cursor-pointer hover:opacity-50"/>
+                        <img key={index} src={img} onClick={displayProject} alt="project-image" className="object-cover rounded-sm size-64 cursor-pointer card-hover"/>
                     )}
             </div>
             )}
             {projectView === 'single' && (
                 <div className="flex flex-col">
-                    <div onClick={displayAllProjects} className="p-2 m-2 border rounded-md border-pdark cursor-pointer text-center text-xs w-1/4 float-right bg-slate-500 text-white hover:bg-slate-400"> Back to Projects</div>
+                    <div onClick={displayAllProjects} className="p-2 border border-pdark cursor-pointer text-center text-xs w-1/4 float-right bg-slate-500 text-white hover:button-background-hover"> Back to Projects</div>
                     <Project projImg={currProjImg}></Project>
                 </div>
                 )}

@@ -3,21 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --foreground: white;
-  --background: #3c4574;
+  --primary-light: #e6e7da;
+  --primary-dark: #8b8885;
+  --primary-accent-light: #bcd0e0;
+  --primary-accent-dark: #5992c6;
+  --primary-white: #ffffff;
 }
 
 /* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #071a43;
-    --foreground: #eceeff;
+    --primary-dark: #071a43;
+    --primary-light: #eceeff;
   }
 } */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--primary-dark);
+  background: var(--primary-dark);
+  font-family: Instrument Serif,Adjusted Georgia Fallback,ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;
   font-weight: 400;
 }
 
@@ -26,26 +29,68 @@ body {
 }
 
 .border-pwhite {
-  color: #eceeff
+  color: var(--primary-dark);
 }
 
 .border-pdark {
-  border-color: #9ca3af;
+  border-color: var(--primary-dark);
+}
+
+.border-accent-dark {
+  border-color: var(--primary-accent-dark);
+}
+
+.border-accent-light {
+  border-color: var(--primary-accent-light);
 }
 
 .background-pdark {
-  background-color: #071a43;
+  background-color: var(--primary-dark);
 }
 
 .background-pmd {
-  background-color: #3c4574;
+  background-color: var(--primary-dark);
+}
+
+.background-accent-dark {
+  background-color: var(--primary-accent-dark);
+}
+
+.background-accent-light {
+  background-color: var(--primary-accent-light);
 }
 
 .dark-shadow {
-  --tw-shadow-color: #071a43;
+  --tw-shadow-color: var(--primary-dark);
+}
+
+.custom-button {
+  background: var(--primary-white);
+  color: var(--primary-dark);
+}
+
+.custom-button:hover {
+  background: var(--primary-accent-dark);
+  color: var(--primary-light);
 }
 
 .section-pwhite, .nav-link:hover {
-  background: var(--foreground);
-  color: #9ca3af;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+@layer components {
+  .btn-secondary {
+    @apply rounded-md
+           border
+           px-2
+           py-1
+           transition-colors;
+  }
+
+  .card-hover {
+    @apply transition-all
+           hover:translate-x-1
+           hover:-translate-y-1;
+  }
 }
