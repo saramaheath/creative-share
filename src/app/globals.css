@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --primary-light: #e6e7da;
+  --primary-light: #ffffff;
   --primary-dark: #8b8885;
+  --primary-bg-dark: #ccc9c5;
   --primary-accent-light: #bcd0e0;
+  --primary-accent-lightest: #f0f5f9;
   --primary-accent-dark: #5992c6;
   --primary-white: #ffffff;
 }
@@ -28,8 +30,16 @@ body {
   height: 100%;
 }
 
-.border-pwhite {
-  color: var(--primary-dark);
+/* .nav-link {
+  color: var(--primary-light);
+} */
+
+.border-plight {
+  border-color: var(--primary-accent-light);
+}
+
+.border-plight:hover {
+  border-color: var(--primary-light);
 }
 
 .border-pdark {
@@ -50,6 +60,14 @@ body {
 
 .background-pmd {
   background-color: var(--primary-dark);
+}
+
+.background-plight {
+  background-color: var(--primary-light);
+}
+
+.background-accent-lightest {
+  background-color: var(--primary-accent-lightest);
 }
 
 .background-accent-dark {
@@ -74,9 +92,27 @@ body {
   color: var(--primary-light);
 }
 
-.section-pwhite, .nav-link:hover {
+.section-pwhite {
   background: var(--primary-light);
   color: var(--primary-dark);
+}
+
+.nav-link {
+  color: var(--primary-accent-light);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-accent-dark);
+}
+
+.custom-icon {
+  color: var(--primary-accent-light);
+  transition: color 0.3s ease;
+}
+
+.custom-icon:hover {
+  color: var(--primary-accent-dark);
 }
 
 @layer components {

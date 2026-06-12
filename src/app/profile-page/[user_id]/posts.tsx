@@ -6,7 +6,7 @@ export default function Posts(){
 
     return (
         <div className="p-2 mx-4 mb-4 flex flex-col section-pwhite">
-            <div className="grid grid-rows-4 m-8">
+            <div className="m-8 flex flex-col gap-6">
                 {posts.map((post, index) =>
                     <Post key={index}></Post>
                 )}
