@@ -21,7 +21,7 @@ export default function Projects(){
             {projectView === 'multi' && (
                 <div className="grid grid-cols-4 gap-4 m-8">
                     {projects.map((img, index) =>
-                        <img key={index} src={img} onClick={displayProject} alt="project-image" className="object-cover rounded-sm size-64 cursor-pointer card-hover"/>
+                        <img key={index} src={img} onClick={displayProject} alt="project-image" className="object-cover rounded-md size-64 cursor-pointer card-hover"/>
                     )}
             </div>
             )}

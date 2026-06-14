@@ -1,4 +1,6 @@
 "use client";
+import TrashCanIcon from '@iconify-react/stash/trash-can';
+import ArrowReplySolidIcon from '@iconify-react/stash/arrow-reply-solid';
 
 export default function Comment(){
     
@@ -9,12 +11,13 @@ export default function Comment(){
                 <p className="text-xs font-normal pl-2">1 month ago</p>
             </div>
            <p className="text-xs font-normal mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-           <div className="flex flex-row justify-between">
-            <div className="m-2 p-2 rounded-sm cursor-pointer text-center text-xs w-1/4 custom-button">
-                <span className="">Reply</span>
+           <div className="flex flex-row justify-end">
+            <div className="mx-2 mt-2 mb-0 cursor-pointer">
+                <ArrowReplySolidIcon className="cursor-pointer custom-icon" height="24" />
             </div>
-            <div className="m-2 p-2 rounded-sm cursor-pointer text-center text-xs w-1/4 custom-button">
-                <span className="">Delete</span>
+            <div className="mx-2 mt-2 mb-0 cursor-pointer">
+                <TrashCanIcon className="cursor-pointer custom-icon" height="24" />
+                
             </div>
            </div>
         </div>

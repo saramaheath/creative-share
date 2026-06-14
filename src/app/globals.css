@@ -8,6 +8,7 @@
   --primary-bg-dark: #ccc9c5;
   --primary-accent-light: #bcd0e0;
   --primary-accent-lightest: #f0f5f9;
+  --primary-accent-xlight: #f9f9f9;
   --primary-accent-dark: #5992c6;
   --primary-white: #ffffff;
 }
@@ -68,6 +69,10 @@ body {
 
 .background-accent-lightest {
   background-color: var(--primary-accent-lightest);
+}
+
+.background-xlight {
+  background-color: var(--primary-accent-xlight);
 }
 
 .background-accent-dark {
