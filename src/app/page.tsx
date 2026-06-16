@@ -1,8 +1,12 @@
 import Nav from "@/components/nav";
 import Search from "@/components/search";
-import { getCurrentUser } from "./lib/auth/get-current-user";
+import { getCurrentUser } from "../lib/auth/get-current-user";
+import { getPostsByUserId } from "@/database/PostRepo";
 import Image from "next/image";
 import { redirect } from 'next/navigation';
+import UserProfile from "./profile-page/page";
+import { Post } from "../database/types";
+
 
 export default async function Home(){
     const currUser = await getCurrentUser();
@@ -20,7 +24,9 @@ export default async function Home(){
     }
 
     if (currUser) {
-        redirect(`/profile-page/${currUser.id}`);
+        const posts: Post[] = await getPostsByUserId(currUser.id);
+
+        return (<UserProfile user={currUser} posts={posts}></UserProfile>);
     }
 
     return (

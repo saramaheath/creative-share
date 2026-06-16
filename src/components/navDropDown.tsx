@@ -4,7 +4,7 @@
 
 export default function NavDropDown(props: {isOpen : boolean}){
     const labels = ['Home', 'My Profile', 'Community', 'Sign Out'];
-    const links = ['/', '/profile-page/1', '/community', '/auth/logout'];
+    const links = ['/', '/profile-page', '/community', '/auth/logout'];
 
     return (
     <div className="max-width-sm cursor-pointer flex justify-end">

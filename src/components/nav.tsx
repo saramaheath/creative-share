@@ -13,7 +13,8 @@ export default function Nav(){
     return (
     <>
         <div className="p-4 max-w-m mx-auto background-accent-light flex justify-between nav-container">
-            <Image src="/cs_pixel_title_dark.png" width={384} height={57} alt="creative-share-logo" className="nav-img"></Image>
+            <span className="text-5xl font-bold text-white italic">Creative Share</span>
+            {/* <Image src="/creative-share-banner3.png" width={384} height={57} alt="creative-share-logo" className="nav-img"></Image> */}
             {/* <div className="hidden md:flex flex-row gap-4 items-center w-1/2">
                 <div className="custom-button text-center rounded-sm w-1/3 py-2">
                     <a href="/community" className="nav-link text-xs px-2">Community</a>

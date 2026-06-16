@@ -1,4 +1,4 @@
-import { auth0 } from "@/app/lib/auth0";
+import { auth0 } from "@/lib/auth0";
 import { createUser, findUserById } from "@/database/UserRepo";
 import { findUserByEmail } from "@/database/UserRepo";
 import { NewUser } from "@/database/types";
@@ -19,7 +19,8 @@ export async function getCurrentUser() {
         const userLastName = session.user?.name ? session.user.name.split(' ')[1] : '';
 
         const newUser: NewUser = {
-            user_name: session.user?.nickname || '',
+            username: session.user?.nickname || '',
+            username_display: session.user?.nickname || '',
             first_name: userFirstName,
             last_name: userLastName,
             gender: '',
