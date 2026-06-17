@@ -6,12 +6,10 @@ export default function CreatePostForm(){
      return (
     <form action={createPostAction}>
         <div className="background-accent-lightest p-4 mx-4 mt-4 rounded-md">
-            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="col-span-full">
-                    <div>
-                        <div className="flex items-center rounded-md">
-                        <input id="title" type="text" name="title" placeholder="Post Title" className="w-full rounded-md py-1.5 px-3" />
-                        </div>
+            <div className="col-span-full">
+                <div>
+                    <div className="flex items-center rounded-md">
+                    <input id="title" type="text" name="title" placeholder="Post Title" className="w-full rounded-md py-1.5 px-3" />
                     </div>
                 </div>
             </div>

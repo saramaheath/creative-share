@@ -5,7 +5,8 @@ import { getPostsByUserId } from "@/database/PostRepo";
 import Image from "next/image";
 import { redirect } from 'next/navigation';
 import UserProfile from "./profile-page/page";
-import { Post } from "../database/types";
+import { Post, Project } from "../database/types";
+import { getAllUserProjects } from "@/database/ProjectRepo";
 
 
 export default async function Home(){
@@ -25,8 +26,9 @@ export default async function Home(){
 
     if (currUser) {
         const posts: Post[] = await getPostsByUserId(currUser.id);
+        const projects: Project[] = await getAllUserProjects(currUser.id);
 
-        return (<UserProfile user={currUser} posts={posts}></UserProfile>);
+        return (<UserProfile user={currUser} posts={posts} projects={projects}></UserProfile>);
     }
 
     return (

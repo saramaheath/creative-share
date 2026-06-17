@@ -2,9 +2,9 @@ import Nav from "@/components/nav";
 import ProfPic from "@/app/profile-page/profPic";
 import TabsSection from "@/app/profile-page/tabsSection";
 import CommunityAlerts from "@/components/communityAlerts";
-import { Post } from "../../database/types";
+import { Post, Project } from "../../database/types";
 
-export default function UserProfile(props: { user: any, posts: Post[]}) {
+export default function UserProfile(props: { user: any, posts: Post[], projects: Project[]}) {
 
     return (
     <>
@@ -16,7 +16,7 @@ export default function UserProfile(props: { user: any, posts: Post[]}) {
                     <CommunityAlerts></CommunityAlerts>
                 </div>
                 <div className="flex flex-col w-full">
-                    <TabsSection userName={props.user.username} posts={props.posts}></TabsSection>
+                    <TabsSection userName={props.user.username} posts={props.posts} projects={props.projects}></TabsSection>
                 </div>
             </div>
         </div>

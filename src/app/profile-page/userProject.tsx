@@ -1,6 +1,6 @@
 "use client";
 
-export default function Project(props: {projImg: string}){
+export default function UserProject(props: {projImg: string}){
 
     return (
         <div className="">

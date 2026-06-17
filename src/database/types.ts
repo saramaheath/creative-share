@@ -14,6 +14,7 @@ import {
     post_likes: PostLikesTable
     comment_likes: CommentLikesTable
     project_likes: ProjectLikesTable
+    media_assets: MediaAssetsTable
   }
   
   export interface UsersTable {
@@ -117,4 +118,17 @@ import {
   export type ProjectLike = Selectable<ProjectLikesTable>
   export type NewProjectLike = Insertable<ProjectLikesTable>
   export type ProjectLikeUpdate = Updateable<ProjectLikesTable>
+
+  export interface MediaAssetsTable {
+    id: Generated<number>
+    user_id: number
+    path: string
+    mime_type: string
+    size: string
+    created_at: ColumnType<Date, string | undefined, never>
+  }
+
+  export type MediaAsset = Selectable<MediaAssetsTable>
+  export type NewMediaAsset = Insertable<MediaAssetsTable>
+  export type MediaAssetUpdate = Updateable<MediaAssetsTable>
 

@@ -3,9 +3,9 @@ import { useState } from "react";
 import Projects from "@/app/profile-page/projects";
 import Posts from "./posts";
 import AboutMe from "./aboutMe";
-import { Post } from "../../database/types";
+import { Post, Project } from "../../database/types";
 
-export default function TabsSection(props: { userName: string, posts: Post[] }){
+export default function TabsSection(props: { userName: string, posts: Post[], projects: Project[] }){
 const [activeTab, setActiveTab] = useState('Projects');
 const { userName } = props;
 const tabs = ['Projects', 'Posts', 'About Me'];
@@ -22,7 +22,7 @@ function tabSwitch(evt: React.MouseEvent<HTMLDivElement>){
                     <div key={index} onClick={tabSwitch} className={activeTab === tab ? activeStyles : inactiveStyles}>{tab}</div>
                 )}
             </div>
-            {activeTab === 'Projects' && (<Projects></Projects>)}
+            {activeTab === 'Projects' && (<Projects projects={props.projects}></Projects>)}
             {activeTab === 'Posts' && (<Posts posts={props.posts}></Posts>)}
             {activeTab === 'About Me' && (<AboutMe></AboutMe>)}
             
